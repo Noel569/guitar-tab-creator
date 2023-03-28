@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <img class="guitar-icon" src="img/guitar-icon.png" alt="icon">
+        <a href="http://127.0.0.1:5500/front-page.html">Home</a>
+        <a href="http://127.0.0.1:5500/editor.html">Create Tab</a>
+        <a href="http://127.0.0.1:5500/profile.html">Profile</a>
+        <a href="#">Log Out</a>
+    </div>
+    <div class="page">
+        <h2 class="tab-title">Fat Lip</h2>
+        <p class="tab-performer">Sum41</p>
+        <div class="tab"></div>
+        <div class="response-wrapper">
+            <img class="empty-like-icon" src="img/empty-heart.png" alt="empty heart">
+            <p class="counter">179</p>
+            <img class="comment-icon" src="img/comment.png" alt="comment">
+            <p class="counter">3</p>
+        </div>
+        <form class="comment-editor">
+        <textarea rows="3" placeholder="Leave a comment..."></textarea>
+        <button type="submit">Post Comment</button>
+        </form>
+        <div class="comments-wrapper">
+            <div class="comment">
+                <p class="comment-name">User01</p>
+                <p class="comment-date">2 days ago</p>
+                <p class="comment-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia porro asperiores enim, necessitatibus temporibus sunt quos soluta labore, molestiae ipsa aut veniam nemo perferendis eius. Soluta suscipit sunt consequuntur odio!</p>
+            </div>
+            <div class="comment">
+                <p class="comment-name">ProGuitarist_13</p>
+                <p class="comment-date">3 days ago</p>
+                <p class="comment-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero, nulla alias asperiores aliquid quidem libero laboriosam, architecto vitae inventore quia ex incidunt tempore cumque in dolore dicta placeat ad illo? Perspiciatis at, minus magni possimus voluptas non adipisci nostrum, ducimus molestias error fugiat! Ab, tempore doloribus. Maxime suscipit reprehenderit est!</p>
+            </div>
+            <div class="comment">
+                <p class="comment-name">Slash_Official</p>
+                <p class="comment-date">10 days ago</p>
+                <p class="comment-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, ad.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="tabgenerator.js"></script>
+    <script src="tabplayer.js"></script>
+</body>
+</html>
