@@ -1,6 +1,12 @@
 <div class="header">
     <img class="guitar-icon" src="images/guitar-icon.png" alt="icon">
-    <a href="http://127.0.0.1:5500/editor.html">Create Tab</a>
-    <a href="{{ route('login') }}">Login</a>
-    <a href="http://127.0.0.1:5500/register.html">Register</a>
+    <a href="{{ route('landing') }}" <?= request()->routeIs('landing') ? 'style="display: none;"' : ''?>>Home</a>
+    @if(Auth::check())
+    <a href="{{ route('login') }}" <?= request()->routeIs('login') ? 'style="display: none;"' : ''?>>Login</a>
+    <a href="{{ route('register') }}" <?= request()->routeIs('register') ? 'style="display: none;"' : ''?>>Register</a>
+    @else
+    <a href="{{ route('editor') }}" <?= request()->routeIs('editor') ? 'style="display: none;"' : ''?>>Create Tab</a>
+    <a href="{{ route('profile') }}" <?= request()->routeIs('profile') ? 'style="display: none;"' : ''?>>Profile</a>
+    <a href="{{ route('login') }}">Log out</a>
+    @endif
 </div>

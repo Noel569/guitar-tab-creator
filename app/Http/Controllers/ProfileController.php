@@ -6,10 +6,12 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller;
 
-class LandingController extends Controller
+class ProfileController extends Controller
 {
-    public function landing()
-    {
+    public function profile() {
+        $username = "User01";
+        $email = "proguitarist13@gmail.com";
+
         $tabs = [
             [
                 "title" => "Pieces", 
@@ -26,26 +28,12 @@ class LandingController extends Controller
                 "tuning" => "Standard",
                 "likes" => 17,
                 "comments" => 9,
-            ],
-            [
-                "title" => "Animal I Have Become", 
-                "performer" => "Three Days Grace",
-                "user" => "User02",
-                "tuning" => "Drop D",
-                "likes" => 12,
-                "comments" => 3,
-            ],
-            [
-                "title" => "Dirty Little Secrets", 
-                "performer" => "The All-American Rejects",
-                "user" => "Slash_Official",
-                "tuning" => "Standard",
-                "likes" => 5,
-                "comments" => 0,
-            ],
+            ]
         ];
 
-        return view("index", [
+        return view("profile", [
+            "username" => $username,
+            "email" => $email,
             "tabs" => $tabs
         ]);
     }

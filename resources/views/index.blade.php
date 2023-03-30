@@ -12,90 +12,29 @@
             <button type="submit">Search</button>
         </form>
         <div class="tab-list">
-            <div class="tab-card" href="#">
-                <div class="tab-card-front">
-                    <h2>Pieces</h2>
-                    <p class="tab-performer">Sum41</p>
-                    <p class="tab-maker">By: User01</p>
-                    <p>Tuning: Standard</p>
-                    <div class="tab-card-response-wrapper">
-                        <div class="tab-card-likes">
-                            <img class="tab-card-like-icon" src="img/heart.png" alt="tab-card-likes">
-                            <p>12</p>
-                        </div>
-                        <div class="tab-card-comments">
-                            <img class="tab-card-comment-icon" src="img/comment.png" alt="tab-card-comments">
-                            <p>2</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-card-back">
-                    <a class="btn tab-btn" href="http://127.0.0.1:5500/tab.html">View</a>
-                </div>
-            </div>
-            <div class="tab-card" href="#">
-                <div class="tab-card-front">
-                    <h2>History</h2>
-                    <p class="tab-performer">Story Untold</p>
-                    <p class="tab-maker">By: User01</p>
-                    <p>Tuning: Standard</p>
-                    <div class="tab-card-response-wrapper">
-                        <div class="tab-card-likes">
-                            <img class="tab-card-like-icon" src="img/heart.png" alt="tab-card-likes">
-                            <p>12</p>
-                        </div>
-                        <div class="tab-card-comments">
-                            <img class="tab-card-comment-icon" src="img/comment.png" alt="tab-card-comments">
-                            <p>2</p>
+            @foreach($tabs as $tab)
+                <div class="tab-card" href="#">
+                    <div class="tab-card-front">
+                        <h2>{{ $tab["title"] }}</h2>
+                        <p class="tab-performer">{{ $tab["performer"] }}</p>
+                        <p class="tab-maker">By: {{ $tab["user"] }}</p>
+                        <p>Tuning: {{ $tab["tuning"] }}</p>
+                        <div class="tab-card-response-wrapper">
+                            <div class="tab-card-likes">
+                                <img class="tab-card-like-icon" src="images/heart.png" alt="tab-card-likes">
+                                <p>{{ $tab["likes"] }}</p>
+                            </div>
+                            <div class="tab-card-comments">
+                                <img class="tab-card-comment-icon" src="images/comment.png" alt="tab-card-comments">
+                                <p>{{ $tab["comments"] }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="tab-card-back">
-                    <a class="btn tab-btn" href="http://127.0.0.1:5500/tab.html">View</a>
-                </div>
-            </div>
-            <div class="tab-card" href="#">
-                <div class="tab-card-front">
-                    <h2>What's My Age Again?</h2>
-                    <p class="tab-performer">blink-182</p>
-                    <p class="tab-maker">By: User01</p>
-                    <p>Tuning: Standard</p>
-                    <div class="tab-card-response-wrapper">
-                        <div class="tab-card-likes">
-                            <img class="tab-card-like-icon" src="img/heart.png" alt="tab-card-likes">
-                            <p>12</p>
-                        </div>
-                        <div class="tab-card-comments">
-                            <img class="tab-card-comment-icon" src="img/comment.png" alt="tab-card-comments">
-                            <p>2</p>
-                        </div>
+                    <div class="tab-card-back">
+                        <a class="btn tab-btn" href="{{ route('tab') }}">View</a>
                     </div>
                 </div>
-                <div class="tab-card-back">
-                    <a class="btn tab-btn" href="http://127.0.0.1:5500/tab.html">View</a>
-                </div>
-            </div>
-            <div class="tab-card" href="#">
-                <div class="tab-card-front">
-                    <h2>Dirty Little Secrets</h2>
-                    <p class="tab-performer">The All-American Rejects</p>
-                    <p class="tab-maker">By: User01</p>
-                    <p>Tuning: Standard</p>
-                    <div class="tab-card-response-wrapper">
-                        <div class="tab-card-likes">
-                            <img class="tab-card-like-icon" src="img/heart.png" alt="tab-card-likes">
-                            <p>12</p>
-                        </div>
-                        <div class="tab-card-comments">
-                            <img class="tab-card-comment-icon" src="img/comment.png" alt="tab-card-comments">
-                            <p>2</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-card-back">
-                    <a class="btn tab-btn" href="http://127.0.0.1:5500/tab.html">View</a>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 @endsection
