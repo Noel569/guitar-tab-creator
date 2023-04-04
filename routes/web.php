@@ -21,12 +21,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", [LandingController::class, "landing"])->name("landing");
 
-Route::get("/editor", [EditorController::class, "editor"])->name("editor");
-
 Route::get("/login", [LoginController::class, "login"])->name("login");
 
 Route::get("/profile", [ProfileController::class, "profile"])->name("profile");
 
 Route::get("/register", [RegisterController::class, "register"])->name("register");
 
-Route::get("/tab", [TabController::class, "tab"])->name("tab");
+Route::get("/tabs/{tab_id}", [TabController::class, "tab"])->name("tab");
+
+//Route::get("/tabs/{tab_id}/edit", [TabController::class, "tab"])->name("tab");
+
+//Route::post("/tabs/{tab_id}/save", [TabController::class, "tab"])->name("tab");
+
+//Route::post("/tabs/{tab_id}/delete", [TabController::class, "tab"])->name("tab");

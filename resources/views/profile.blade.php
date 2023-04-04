@@ -23,17 +23,17 @@
             @foreach($tabs as $tab)
             <div class="tab-card" href="#">
                 <div class="tab-card-front">
-                    <h2>{{ $tab["title"] }}</h2>
-                    <p class="tab-performer">{{ $tab["performer"] }}</p>
-                    <p>Tuning: {{ $tab["tuning"] }}</p>
+                    <h2>{{ $tab->title }}</h2>
+                    <p class="tab-performer">{{ $tab->performer }}</p>
+                    <p>Tuning: {{ $tab->tuning->name }}</p>
                     <div class="tab-card-response-wrapper">
                         <div class="tab-card-likes">
                             <img class="tab-card-like-icon" src="images/heart.png" alt="tab-card-likes">
-                            <p>{{ $tab["likes"] }}</p>
+                            <p>0</p>
                         </div>
                         <div class="tab-card-comments">
                             <img class="tab-card-comment-icon" src="images/comment.png" alt="tab-card-comments">
-                            <p>{{ $tab["comments"] }}</p>
+                            <p>0</p>
                         </div>
                     </div>
                 </div>

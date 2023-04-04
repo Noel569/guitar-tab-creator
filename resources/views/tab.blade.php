@@ -5,9 +5,9 @@
         <p class="tab-performer">Sum41</p>
         <div class="tab"></div>
         <div class="response-wrapper">
-            <img class="empty-like-icon" src="images/empty-heart.png" alt="empty heart">
+            <img class="empty-like-icon" src="{{url('images/empty-heart.png')}}" alt="empty heart">
             <p class="counter">179</p>
-            <img class="comment-icon" src="images/comment.png" alt="comment">
+            <img class="comment-icon" src="{{url('images/comment.png')}}" alt="comment">
             <p class="counter">3</p>
         </div>
         <form class="comment-editor">

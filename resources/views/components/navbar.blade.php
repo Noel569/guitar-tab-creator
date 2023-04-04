@@ -1,7 +1,7 @@
 <div class="header">
-    <img class="guitar-icon" src="images/guitar-icon.png" alt="icon">
+    <img class="guitar-icon" src="{{url('images/guitar-icon.png')}}" alt="icon">
     <a href="{{ route('landing') }}" <?= request()->routeIs('landing') ? 'style="display: none;"' : ''?>>Home</a>
-    @if(Auth::check())
+    @if(!Auth::check())
     <a href="{{ route('login') }}" <?= request()->routeIs('login') ? 'style="display: none;"' : ''?>>Login</a>
     <a href="{{ route('register') }}" <?= request()->routeIs('register') ? 'style="display: none;"' : ''?>>Register</a>
     @else
