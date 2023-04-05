@@ -27,10 +27,10 @@ class Tab extends Model
     }
 
     public function likes() {
-        return $this->hasMany(Like::class);
+        return $this->hasMany(Like::class, 'tab_id', 'id');
     }
 
     public function comments() {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class, 'tab_id', 'id');
     }
 }

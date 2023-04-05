@@ -29,11 +29,11 @@
                     <div class="tab-card-response-wrapper">
                         <div class="tab-card-likes">
                             <img class="tab-card-like-icon" src="images/heart.png" alt="tab-card-likes">
-                            <p>0</p>
+                            <p>{{ $tab->likes->count() }}</p>
                         </div>
                         <div class="tab-card-comments">
                             <img class="tab-card-comment-icon" src="images/comment.png" alt="tab-card-comments">
-                            <p>0</p>
+                            <p>{{ $tab->comments->count() }}</p>
                         </div>
                     </div>
                 </div>
