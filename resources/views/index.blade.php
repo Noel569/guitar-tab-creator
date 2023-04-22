@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <div class="tab-card-back">
-                        <a class="btn tab-btn" href="{{ route('tab', [$tab->id]) }}">View</a>
+                        <a class="btn blue-btn tab-btn" href="{{ route('tab', [$tab->id]) }}">View</a>
                     </div>
                 </div>
             @endforeach

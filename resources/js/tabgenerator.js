@@ -1,12 +1,13 @@
 const tab = document.querySelector(".tab");
 const rowWrapper = document.createElement("div");
 let bpm = document.querySelector(".bpm");
+let hiddenTab = document.querySelector(".hidden-tab");
+let myTab = JSON.parse(hiddenTab.value);
 rowWrapper.classList.add("row-wrapper");
 
-window.onload = generateEmptyTab(4);
+window.onload = loadTab();
 
 function generateEmptyTab(numberOfRows) {
-    bpm.value = 120;
 
     for (let i = 0; i < numberOfRows; i++) {
         tab.appendChild(rowWrapper.cloneNode(true));
@@ -58,6 +59,21 @@ function generateEmptyTab(numberOfRows) {
             note.type = "number";
             note.placeholder = " ";
             element.appendChild(note);
+        }
+    }
+}
+
+function loadTab() {
+    generateEmptyTab(myTab.length / 32);
+    let beats = document.querySelectorAll(".beat");
+
+    if (myTab != null) {
+        for (let i = 0; i < myTab.length; i++) {
+            let k = 0
+            for (let j = 5; j >= 0; j--) {
+                beats[i].children[k].value = myTab[i][j];
+                k++;
+            }
         }
     }
 }

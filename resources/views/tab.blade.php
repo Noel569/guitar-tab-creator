@@ -3,7 +3,15 @@
     <div class="page">
         <h2 class="tab-title">{{ $tab->title }}</h2>
         <p class="tab-performer">{{ $tab->performer }}</p>
-        <div class="tab"></div>
+        <div class="button-wrapper">
+            <button id="play">Play</button>
+            <button id="stop" disabled>Stop</button>
+            <a class="btn blue-btn" href="{{ route('edit', [$tab->id]) }}">Edit</a>
+        </div>
+        <div class="tab read-only">
+            <input class="bpm" type="number" value="{{ $tab->tempo }}">
+            <input class="hidden-tab" style="display: none;" value="{{ $tab->tab }}">
+        </div>
         <div class="response-wrapper">
             <img class="empty-like-icon" src="{{url('images/empty-heart.png')}}" alt="empty heart">
             <p class="counter">{{ $tab->likes->count() }}</p>
@@ -24,4 +32,5 @@
             @endforeach
         </div>
     </div>
+    @vite(['resources/js/tabgenerator.js', 'resources/js/tabplayer.js', 'resources/js/buttons.js'])
 @endsection

@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="tab-card-back">
-                    <a class="btn tab-btn" href="#">Edit</a>
+                    <a class="btn blue-btn tab-btn" href="{{ route('edit', [$tab->id]) }}">Edit</a>
                     <a class="btn tab-btn red-btn" href="#">Delete</a>
                 </div>
             </div>

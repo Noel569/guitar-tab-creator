@@ -1,19 +1,35 @@
+import { playTab, paused, setPaused } from "./tabplayer.js";
+
 let play = document.querySelector("#play");
+let stop = document.querySelector("#stop");
 let save = document.querySelector("#save");
 let deleteTab = document.querySelector("#deletetab");
-let beats = document.querySelectorAll(".beat");
-let myTab = [];
-
-window.onload = loadTab();
+let bpm = document.querySelector(".bpm");
+let hiddenTab = document.querySelector(".hidden-tab");
+let myTab = JSON.parse(hiddenTab.value);
 
 play.onclick = function() {
-    if (myTab != null) {
-        cancelled = false;
-        playTab(myTab, bpm.value);
+    stop.disabled = false;
+    play.disabled = true;
+
+    setPaused(false);
+    playTab(myTab, bpm.value);
+}
+
+stop.onclick = function() {
+    stop.disabled = true;
+    play.disabled = false;
+
+    setPaused(true);
+}
+
+if (save != null) {
+    save.onclick = function() {
+        console.log("asd");
     }
 }
 
-save.onclick = function() {
+/*save.onclick = function() {
     myTab = [];
     localStorage.clear();
     let beat;
@@ -41,23 +57,4 @@ deleteTab.onclick = function() {
             beats[i].children[j].value = "";
         }
     }
-}
-
-function loadTab() {
-    myTab = JSON.parse(localStorage.getItem('tab'));
-    if (bpm.value = '120') {
-        bpm.value = 120;
-    }
-    else {
-        bpm.value = JSON.parse(localStorage.getItem('tempo'));
-    }
-    if (myTab != null) {
-        for (let i = 0; i < myTab.length; i++) {
-            let k = 0
-            for (let j = 5; j >= 0; j--) {
-                beats[i].children[k].value = myTab[i][j];
-                k++;
-            }
-        }
-    }
-}
+}*/

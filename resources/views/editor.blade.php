@@ -40,13 +40,16 @@
         </div>
         <div class="button-wrapper">
             <button id="play">Play</button>
+            <button id="stop" disabled>Stop</button>
         </div>
         <div class="button-wrapper">
             <button id="save">Save</button>
             <button id="deletetab" class="red-btn">Delete Tab</button>
         </div>
         <div class="tab">
-            <input class="bpm" type="number">
+            <input class="bpm" type="number" value="{{ $tab->tempo }}">
+            <input class="hidden-tab" style="display: none;" value="{{ $tab->tab }}">
         </div>
     </div>
+    @vite(['resources/js/tabgenerator.js', 'resources/js/tabplayer.js', 'resources/js/buttons.js'])
 @endsection

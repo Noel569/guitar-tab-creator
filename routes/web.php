@@ -29,7 +29,7 @@ Route::get("/register", [RegisterController::class, "register"])->name("register
 
 Route::get("/tabs/{tab_id}", [TabController::class, "tab"])->name("tab");
 
-//Route::get("/tabs/{tab_id}/edit", [TabController::class, "tab"])->name("tab");
+Route::get("/tabs/{tab_id}/edit", [TabController::class, "editor"])->name("edit");
 
 //Route::post("/tabs/{tab_id}/save", [TabController::class, "tab"])->name("tab");
 

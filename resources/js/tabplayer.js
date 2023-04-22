@@ -64,74 +64,22 @@ function playBeat(frets) {
     context.resume().then(strum(frets));
 }
 
-function playTab(tab, bpm) {
-    for (let i = 0; i < tab.length; i++) {
-        setTimeout(() => {
-            playBeat(tab[i]);
-        }, (60 / bpm * 1000) * i);
-    }
+export let paused = false;
+
+export function setPaused(state) {
+    paused = state;
 }
 
-let sweetChild = [
-    [null, null, 11, null, null, null],
-    [null, null, null, null, 14, null],
-    [null, null, null, 13, null, null],
-    [null, null, null, 11, null, null],
-    [null, null, null, null, null, 14],
-    [null, null, null, 13, null, null],
-    [null, null, null, null, null, 13],
-    [null, null, null, 13, null, null],
-    [null, null, 11, null, null, null],
-    [null, null, null, null, 14, null],
-    [null, null, null, 13, null, null],
-    [null, null, null, 11, null, null],
-    [null, null, null, null, null, 14],
-    [null, null, null, 13, null, null],
-    [null, null, null, null, null, 13],
-    [null, null, null, 13, null, null],
-    [null, null, 13, null, null, null],
-    [null, null, null, null, 14, null],
-    [null, null, null, 13, null, null],
-    [null, null, null, 11, null, null],
-    [null, null, null, null, null, 14],
-    [null, null, null, 13, null, null],
-    [null, null, null, null, null, 13],
-    [null, null, null, 13, null, null],
-    [null, null, 13, null, null, null],
-    [null, null, null, null, 14, null],
-    [null, null, null, 13, null, null],
-    [null, null, null, 11, null, null],
-    [null, null, null, null, null, 14],
-    [null, null, null, 13, null, null],
-    [null, null, null, null, null, 13],
-    [null, null, null, 13, null, null],
-];
+function delay(ms) {
+    console.log(paused);
+    return new Promise((resolve, reject) => {
+        setTimeout(() => { if (!paused) resolve() }, ms)
+    });
+}
 
-let shallow = [
-    [0, null, null, null, null, null],
-    [null, null, null, 0, null, null],
-    [null, null, null, null, 3, null],
-    [null, null, null, 0, null, null],
-    [2, null, null, null, null, null],
-    [null, null, null, 2, 3, null],
-    [null, null, null, null, null, null],
-    [3, null, null, 0, 3, null],
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, null],
-    [null, 3, null, null, null, null],
-    [null, null, 2, null, null, null],
-    [null, null, null, null, 1, null],
-    [null, null, null, null, 3, null],
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, 0],
-    [null, null, null, null, 3, null],
-    [3, null, null, null, null, null],
-    [null, null, null, null, 3, 3],
-    [null, null, null, null, null, null],
-    [null, null, 0, 2, 3, null],
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, 0],
-    [null, null, null, null, 3, null],
-]
+export async function playTab(tab, bpm) {
+    for (let i = 0; i < tab.length; i++) {
+        playBeat(tab[i]);
+        await delay(60 / bpm * 1000);
+    }
+}

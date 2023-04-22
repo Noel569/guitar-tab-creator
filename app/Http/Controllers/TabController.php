@@ -13,4 +13,9 @@ class TabController extends Controller
         $tab = Tab::find($tab_id);
         return view("tab", ["tab"=>$tab]);
     }
+
+    public function editor($tab_id) {
+        $tab = Tab::find($tab_id);
+        return view("editor", ["tab"=>$tab]);
+    }
 }
