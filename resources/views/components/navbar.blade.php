@@ -7,6 +7,9 @@
     @else
     <a href="{{ route('editor') }}" <?= request()->routeIs('editor') ? 'style="display: none;"' : ''?>>Create Tab</a>
     <a href="{{ route('profile') }}" <?= request()->routeIs('profile') ? 'style="display: none;"' : ''?>>Profile</a>
-    <a href="{{ route('login') }}">Log out</a>
+    <form action="{{ route('logout') }}" method="POST">
+        @csrf
+        <button type="submit">Log out</button>
+    </form>
     @endif
 </div>

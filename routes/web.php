@@ -1,11 +1,11 @@
 <?php
 
 use App\Http\Controllers\LandingController;
-use App\Http\Controllers\EditorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TabController;
+use App\Http\Controllers\EditorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,15 +21,23 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", [LandingController::class, "landing"])->name("landing");
 
-Route::get("/login", [LoginController::class, "login"])->name("login");
+Route::get("/login", [LoginController::class, "view"])->name("login");
+
+Route::post("/login", [LoginController::class, "login"])->name("login.login");
+
+Route::post("/logout", [LoginController::class, "logout"])->name("logout");
 
 Route::get("/profile", [ProfileController::class, "profile"])->name("profile");
 
-Route::get("/register", [RegisterController::class, "register"])->name("register");
+Route::get("/register", [RegisterController::class, "view"])->name("register");
+
+Route::post("/register", [RegisterController::class, "store"])->name("register.store");
 
 Route::get("/tabs/{tab_id}", [TabController::class, "tab"])->name("tab");
 
 Route::get("/tabs/{tab_id}/edit", [TabController::class, "editor"])->name("edit");
+
+Route::get("/editor", [EditorController::class, "view"])->name("editor");
 
 //Route::post("/tabs/{tab_id}/save", [TabController::class, "tab"])->name("tab");
 
