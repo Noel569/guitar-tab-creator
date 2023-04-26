@@ -35,10 +35,18 @@ Route::post("/register", [RegisterController::class, "store"])->name("register.s
 
 Route::get("/tabs/{tab_id}", [TabController::class, "tab"])->name("tab");
 
-Route::get("/tabs/{tab_id}/edit", [TabController::class, "editor"])->name("edit");
+Route::middleware("middleware.auth")->group(function () {
+    Route::post("/logout", [LoginController::class, "logout"])->name("logout");
 
-Route::get("/editor", [EditorController::class, "view"])->name("editor");
+    Route::get("/profile", [ProfileController::class, "profile"])->name("profile");
 
-//Route::post("/tabs/{tab_id}/save", [TabController::class, "tab"])->name("tab");
+    Route::get("/tabs/{tab_id}/edit", [TabController::class, "editor"])->name("edit");
 
-//Route::post("/tabs/{tab_id}/delete", [TabController::class, "tab"])->name("tab");
+    Route::post("/tabs/{tab_id}/edit", [TabController::class, "update"])->name("edit.update");
+
+    Route::post("/tabs/{tab_id}/delete", [TabController::class, "delete"])->name("delete");
+
+    Route::get("/editor", [EditorController::class, "view"])->name("editor");
+
+    Route::post("/editor", [EditorController::class, "store"])->name("editor.store");
+});

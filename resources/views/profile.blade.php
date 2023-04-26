@@ -39,7 +39,10 @@
                 </div>
                 <div class="tab-card-back">
                     <a class="btn blue-btn tab-btn" href="{{ route('edit', [$tab->id]) }}">Edit</a>
-                    <a class="btn tab-btn red-btn" href="#">Delete</a>
+                    <form action="{{ route('delete', [$tab->id]) }}" method="POST">
+                        @csrf
+                        <button class="tab-btn red-btn">Delete</button>
+                    </form>
                 </div>
             </div>
             @endforeach

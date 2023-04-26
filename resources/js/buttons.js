@@ -5,8 +5,13 @@ let stop = document.querySelector("#stop");
 let save = document.querySelector("#save");
 let deleteTab = document.querySelector("#deletetab");
 let bpm = document.querySelector(".bpm");
+let tab = document.querySelector(".tab");
 let hiddenTab = document.querySelector(".hidden-tab");
-let myTab = JSON.parse(hiddenTab.value);
+let myTab = [];
+if (hiddenTab != null) {
+    myTab = JSON.parse(hiddenTab.value);
+}
+
 
 play.onclick = function() {
     stop.disabled = false;
@@ -29,10 +34,16 @@ if (save != null) {
     }
 }
 
-/*save.onclick = function() {
-    myTab = [];
-    localStorage.clear();
+save.onclick = function() {
+    let form = document.querySelector(".input-wrapper");
+    let tempo = document.querySelector("input[name=\"tempo\"]");
+    let tabString = document.querySelector("input[name=\"tab\"]");
+    let beats = document.querySelectorAll(".beat");
+    let tab = [];
     let beat;
+
+    tempo.value = bpm.value;
+
     for (let i = 0; i < beats.length; i++) {
         beat = [];
         for (let j = 5; j >= 0; j--) {
@@ -43,13 +54,14 @@ if (save != null) {
                 beat.push(JSON.parse(beats[i].children[j].value));
             }
         }
-        myTab.push(beat);
+        tab.push(beat);
     }
-    localStorage.setItem('tab', JSON.stringify(myTab));
-    localStorage.setItem('tempo', bpm.value);
+    tabString.value = JSON.stringify(tab);
+
+    form.submit();
 }
 
-deleteTab.onclick = function() {
+/*deleteTab.onclick = function() {
     myTab = [];
     localStorage.clear();
     for (let i = 0; i < beats.length; i++) {
@@ -58,3 +70,7 @@ deleteTab.onclick = function() {
         }
     }
 }*/
+
+tab.addEventListener('keyup', function() {
+    
+})

@@ -1,6 +1,8 @@
 @extends("components.base")
 @section("content")
     <div class="page">
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
+        <input type="hidden" name="action" value="{{ route('edit.update', [$tab->id]) }}">
         <div class="guitar">
             <div class="guitar-head">
                 <div class="top-decor"></div>
@@ -38,13 +40,31 @@
                 <div class="circle-right"></div>
             </div>
         </div>
+        <form class="input-wrapper" action="{{ route('edit.update', [$tab->id]) }}" method="POST">
+            @csrf
+            <input class="input-title" type="text" name="title" value="{{ $tab->title }}">
+            <input class="input-performer" type="text" name="performer" value="{{ $tab->performer }}">
+            <input type="hidden" name="tempo">
+            <input type="hidden" name="tab">
+            <div class="tuning-wrapper">
+                <p class="tuning-text">Tuning:</p>
+                <select class="tuning" name="tuning_id">
+                    @foreach($tunings as $tuning)
+                    <option value="{{ $tuning->id }}">{{ $tuning->name }}</option>
+                    @endforeach()
+                </select>
+            </div>
+        </form>
         <div class="button-wrapper">
             <button id="play">Play</button>
             <button id="stop" disabled>Stop</button>
         </div>
         <div class="button-wrapper">
             <button id="save">Save</button>
-            <button id="deletetab" class="red-btn">Delete Tab</button>
+            <form action="{{ route('delete', [$tab->id]) }}" method="POST">
+                @csrf
+                <button id="deletetab" class="red-btn">Delete Tab</button>
+            </form>
         </div>
         <div class="tab">
             <input class="bpm" type="number" value="{{ $tab->tempo }}">

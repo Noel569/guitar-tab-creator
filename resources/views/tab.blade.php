@@ -6,7 +6,9 @@
         <div class="button-wrapper">
             <button id="play">Play</button>
             <button id="stop" disabled>Stop</button>
+            @if(Auth::user()->id == $tab->user_id)
             <a class="btn blue-btn" href="{{ route('edit', [$tab->id]) }}">Edit</a>
+            @endif
         </div>
         <div class="tab read-only">
             <input class="bpm" type="number" value="{{ $tab->tempo }}">

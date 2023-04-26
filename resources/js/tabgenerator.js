@@ -2,10 +2,18 @@ const tab = document.querySelector(".tab");
 const rowWrapper = document.createElement("div");
 let bpm = document.querySelector(".bpm");
 let hiddenTab = document.querySelector(".hidden-tab");
-let myTab = JSON.parse(hiddenTab.value);
+let myTab = [];
+if (hiddenTab != null) {
+    myTab = JSON.parse(hiddenTab.value);
+}
 rowWrapper.classList.add("row-wrapper");
 
-window.onload = loadTab();
+if (hiddenTab == null) {
+    window.onload = generateEmptyTab(1);
+}
+else {
+    window.onload = loadTab();
+}
 
 function generateEmptyTab(numberOfRows) {
 
