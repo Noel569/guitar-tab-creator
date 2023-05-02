@@ -11,7 +11,7 @@ class LandingController extends Controller
 {
     public function landing()
     {
-        $tabs = Tab::orderBy('id', 'desc')->take(4)->get();
+        $tabs = Tab::orderBy('id', 'desc')->take(10)->get();
 
         return view("index", [
             "tabs" => $tabs

@@ -44,6 +44,10 @@ Route::middleware("middleware.auth")->group(function () {
 
     Route::post("/tabs/{tab_id}/edit", [TabController::class, "update"])->name("edit.update");
 
+    Route::post("/tabs/{tab_id}/like", [TabController::class, "like"])->name("like");
+
+    Route::post("/tabs/{tab_id}/comment", [TabController::class, "comment"])->name("comment");
+
     Route::post("/tabs/{tab_id}/delete", [TabController::class, "delete"])->name("delete");
 
     Route::get("/editor", [EditorController::class, "view"])->name("editor");

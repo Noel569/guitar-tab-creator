@@ -418,7 +418,29 @@ input::placeholder {
     margin-bottom: 48px;
 }
 
-.empty-like-icon, .comment-icon {
+.like-wrapper {
+    position: relative;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.like-icon, .empty-like-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    transition: all .3s ease-out;
+}
+
+.like-icon.inactive{
+    opacity: 0;
+    transform: scale(0);
+}
+
+.comment-icon {
     height: 30px;
     width: 30px;
 }

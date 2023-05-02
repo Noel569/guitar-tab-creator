@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tab;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Tuning;
+use App\Models\Like;
+use App\Models\Comment;
 
 class TabController extends Controller
 {
@@ -69,5 +69,54 @@ class TabController extends Controller
         $tab->delete();
 
         return redirect()->route('profile');
+    }
+
+    public function like($tab_id) {
+        $tab = Tab::find($tab_id);
+
+        if (!empty($tab)) {
+            $like = Like::withTrashed()->where([
+                "tab_id" => $tab->id,
+                "user_id" => Auth::user()->id
+            ])->first();
+
+            if (!empty($like)) {
+                if ($like->trashed()) {
+                    $like->restore();
+                    return response("", 200);
+                } else {
+                    $like->delete();
+                    return response("", 201);
+                }
+            } else {
+                Like::create([
+                    "tab_id" => $tab->id,
+                    "user_id" => Auth::user()->id
+                ]);
+                return response("", 200);
+            }
+        }
+
+        return response("", 500);
+    }
+
+    public function comment(Request $request, $tab_id) {
+        $tab = Tab::find($tab_id);
+        $comment = $request->get("comment");
+
+        if (empty($tab)) {
+            return redirect()->route('landing');
+        }
+
+        $request->validate([
+            'comment' => 'required|min:1|max:400',
+        ]);
+
+        Comment::create([
+            "tab_id" => $tab->id,
+            "user_id" => Auth::user()->id,
+            "comment" => $comment
+        ]);
+        return redirect()->route('tab', [$tab->id]);
     }
 }
