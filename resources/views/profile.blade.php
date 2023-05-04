@@ -12,10 +12,6 @@
                     <td class="information-bold">E-mail Address:</td>
                     <td>{{ $email }}</td>
                 </tr>
-                <tr>
-                    <td class="information-bold">Password:</td>
-                    <td><a href="#">Change Password</a></td>
-                </tr>
             </table>
         </div>
         <h2 class="profile-page-title">My tabs</h2>

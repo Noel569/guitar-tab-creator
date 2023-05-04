@@ -11,7 +11,7 @@ class LandingController extends Controller
 {
     public function landing()
     {
-        $tabs = Tab::orderBy('id', 'desc')->take(10)->get();
+        $tabs = Tab::where('publicity', '=', '1')->orderBy('id', 'desc')->take(10)->get();
 
         return view("index", [
             "tabs" => $tabs

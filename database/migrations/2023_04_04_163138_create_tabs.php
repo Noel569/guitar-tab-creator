@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('tuning_id')->constrained('tunings');
             $table->integer('tempo');
             $table->text('tab');
+            $table->boolean('publicity')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });

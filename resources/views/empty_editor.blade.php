@@ -52,6 +52,13 @@
                     @endforeach()
                 </select>
             </div>
+            <div class="publicity-wrapper">
+                <p class="publicity-text">Private</p>
+                <div class="publicity">
+                    <div class="circle private"></div>
+                </div>
+                <p class="publicity-text">Public</p>
+            </div>
         </form>
         <div class="button-wrapper">
             <button id="play">Play</button>

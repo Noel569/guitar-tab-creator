@@ -27,6 +27,7 @@ class EditorController extends Controller
             'tuning_id' => 'required|exists:tunings,id',
             'tempo' => 'required',
             'tab' => 'required',
+            'publicity' => 'boolean'
         ]);
         $validated["user_id"] = Auth::user()->id;
         Log::debug($validated);

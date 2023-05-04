@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
 
 class Tab extends Model
 {
@@ -16,8 +17,15 @@ class Tab extends Model
         'user_id',
         'tuning_id',
         'tempo',
-        'tab'
+        'tab',
+        'publicity'
     ];
+
+    public function newQuery($excludeDeleted = true) {
+        $query = parent::newQuery($excludeDeleted);
+        $query->whereRaw('publicity = 1 or user_id = ?', [Auth::user()->id ?? 0]);
+        return $query;
+    }
 
     public function user() {
         return $this->hasOne(User::class, 'id', 'user_id');

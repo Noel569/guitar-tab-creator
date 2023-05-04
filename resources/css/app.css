@@ -103,7 +103,11 @@ p {
 }
 
 .tab-btn {
-    width: 70px;
+    width: 100px;
+}
+
+a.tab-btn {
+    width: 56px;
 }
 
 .blue-btn {
@@ -207,6 +211,7 @@ input::placeholder {
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
+    margin-bottom: 16px;
 }
 
 
@@ -605,9 +610,10 @@ textarea::placeholder {
     display: flex;
     align-items: center;
     column-gap: 8px;
+    margin-bottom: 16px;
 }
 
-.tuning-text {
+.tuning-text, .publicity-text {
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
@@ -626,6 +632,7 @@ textarea::placeholder {
     font-weight: 600;
     font-size: 16px;
     line-height: 16px;
+    cursor: pointer;
 }
 
 .tuning option {
@@ -633,6 +640,39 @@ textarea::placeholder {
     font-weight: 600;
     font-size: 16px;
     line-height: 16px;
+}
+
+.publicity-wrapper {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+}
+
+.publicity {
+    position: relative;
+    height: 44px;
+    width: 76px;
+    border: 2px solid var(--green);
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.circle {
+    position: absolute;
+    top: 4px;
+    height: 36px;
+    width: 36px;
+    background-color: var(--green);
+    border-radius: 50%;
+    transition: all .2s ease-out;
+}
+
+.circle.private {
+    left: 4px;
+}
+
+.circle.public {
+    left: 36px;
 }
 
 /* TAB */

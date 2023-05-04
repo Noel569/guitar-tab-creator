@@ -50,6 +50,8 @@ class TabController extends Controller
             'tab' => 'required',
         ]);
 
+        $validated['publicity'] = $request->get('publicity') != 'on';
+
         $tab->fill($validated);
         $tab->save();
 

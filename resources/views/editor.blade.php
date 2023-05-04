@@ -54,6 +54,10 @@
                     @endforeach()
                 </select>
             </div>
+            <div class="publicity-wrapper">
+                <p class="publicity-text">Private</p>
+                <input type="checkbox" name="publicity" id="publicity" {{ !$tab->publicity ? 'checked' : '' }}>
+            </div>
         </form>
         <div class="button-wrapper">
             <button id="play">Play</button>
@@ -61,6 +65,7 @@
         </div>
         <div class="button-wrapper">
             <button id="save">Save</button>
+            <button id="add-row">Add Row</button>
             <form action="{{ route('delete', [$tab->id]) }}" method="POST">
                 @csrf
                 <button id="deletetab" class="red-btn">Delete Tab</button>
