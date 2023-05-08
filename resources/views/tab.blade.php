@@ -13,7 +13,11 @@
             @endif
         </div>
         <div class="tab read-only">
-            <input class="bpm" type="number" value="{{ $tab->tempo }}">
+            <div class="tempo-wrapper">
+                <p class="publicity-text">Tempo:</p>
+                <input class="bpm" type="number" value="{{ $tab->tempo }}">
+                <p class="publicity-text">bpm</p>
+            </div>
             <input class="hidden-tab" style="display: none;" value="{{ $tab->tab }}">
         </div>
         <div class="response-wrapper">

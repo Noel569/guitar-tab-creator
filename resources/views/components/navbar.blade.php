@@ -9,7 +9,7 @@
     <a href="{{ route('profile') }}" <?= request()->routeIs('profile') ? 'style="display: none;"' : ''?>>Profile</a>
     <form action="{{ route('logout') }}" method="POST">
         @csrf
-        <button type="submit">Log out</button>
+        <button class="nav" type="submit">Log out</button>
     </form>
     @endif
 </div>

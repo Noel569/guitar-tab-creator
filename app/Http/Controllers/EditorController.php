@@ -16,7 +16,7 @@ class EditorController extends Controller
 {
     public function view() {
         $tunings = Tuning::all();
-        return view("empty_editor", ["tunings"=>$tunings]);
+        return view('empty_editor', ['tunings'=>$tunings]);
     }
 
     public function store(Request $request) {
@@ -29,7 +29,7 @@ class EditorController extends Controller
             'tab' => 'required',
             'publicity' => 'boolean'
         ]);
-        $validated["user_id"] = Auth::user()->id;
+        $validated['user_id'] = Auth::user()->id;
         Log::debug($validated);
         $tab = Tab::create($validated);
 

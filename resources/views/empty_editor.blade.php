@@ -54,7 +54,8 @@
             </div>
             <div class="publicity-wrapper">
                 <p class="publicity-text">Private</p>
-                <div class="publicity">
+                <div class="switch">
+                    <input type="checkbox" name="publicity" id="publicity" checked>
                     <div class="circle private"></div>
                 </div>
                 <p class="publicity-text">Public</p>
@@ -68,7 +69,11 @@
             <button id="save">Save</button>
         </div>
         <div class="tab">
-            <input class="bpm" type="number" value="120">
+            <div class="tempo-wrapper">
+                <p class="publicity-text">Tempo:</p>
+                <input class="bpm" type="number" value="120">
+                <p class="publicity-text">bpm</p>
+            </div>
         </div>
     </div>
     @vite(['resources/js/tabgenerator.js', 'resources/js/tabplayer.js', 'resources/js/buttons.js'])

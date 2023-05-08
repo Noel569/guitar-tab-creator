@@ -17,7 +17,7 @@ class TabController extends Controller
         if (empty($tab)) {
             return redirect()->route('landing');
         }
-        return view("tab", ["tab"=>$tab]);
+        return view('tab', ['tab'=>$tab]);
     }
 
     public function editor($tab_id) {
@@ -29,7 +29,7 @@ class TabController extends Controller
             return redirect()->route('landing');
         }
         $tunings = Tuning::all();
-        return view("editor", ["tab"=>$tab, "tunings"=>$tunings]);
+        return view('editor', ['tab'=>$tab, 'tunings'=>$tunings]);
     }
 
     public function update(Request $request, $tab_id) {
@@ -78,33 +78,33 @@ class TabController extends Controller
 
         if (!empty($tab)) {
             $like = Like::withTrashed()->where([
-                "tab_id" => $tab->id,
-                "user_id" => Auth::user()->id
+                'tab_id' => $tab->id,
+                'user_id' => Auth::user()->id
             ])->first();
 
             if (!empty($like)) {
                 if ($like->trashed()) {
                     $like->restore();
-                    return response("", 200);
+                    return response('', 200);
                 } else {
                     $like->delete();
-                    return response("", 201);
+                    return response('', 201);
                 }
             } else {
                 Like::create([
-                    "tab_id" => $tab->id,
-                    "user_id" => Auth::user()->id
+                    'tab_id' => $tab->id,
+                    'user_id' => Auth::user()->id
                 ]);
-                return response("", 200);
+                return response('', 200);
             }
         }
 
-        return response("", 500);
+        return response('', 500);
     }
 
     public function comment(Request $request, $tab_id) {
         $tab = Tab::find($tab_id);
-        $comment = $request->get("comment");
+        $comment = $request->get('comment');
 
         if (empty($tab)) {
             return redirect()->route('landing');
@@ -115,9 +115,9 @@ class TabController extends Controller
         ]);
 
         Comment::create([
-            "tab_id" => $tab->id,
-            "user_id" => Auth::user()->id,
-            "comment" => $comment
+            'tab_id' => $tab->id,
+            'user_id' => Auth::user()->id,
+            'comment' => $comment
         ]);
         return redirect()->route('tab', [$tab->id]);
     }

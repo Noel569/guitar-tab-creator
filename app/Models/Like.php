@@ -10,5 +10,8 @@ class Like extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ["user_id", "tab_id"];
+    protected $fillable = [
+        'user_id',
+        'tab_id'
+    ];
 }

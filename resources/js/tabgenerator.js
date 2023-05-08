@@ -33,7 +33,7 @@ function generateEmptyTab(numberOfRows) {
         element.appendChild(row);
     }
 
-    let rowBackgrounds = document.querySelectorAll(".new-row-background")
+    let rowBackgrounds = document.querySelectorAll(".new-row-background");
     for (let element of rowBackgrounds) {
         for (let i = 0; i < 6; i++) {
             let string = document.createElement("div");
@@ -42,7 +42,7 @@ function generateEmptyTab(numberOfRows) {
         }
     }
 
-    let rows = document.querySelectorAll(".new-row")
+    let rows = document.querySelectorAll(".new-row");
     for (let element of rows) {
         for (let i = 0; i < 4; i++) {
             let rythm = document.createElement("div");
@@ -51,16 +51,16 @@ function generateEmptyTab(numberOfRows) {
         }
     }
 
-    let rythms = document.querySelectorAll(".new-rythm")
+    let rythms = document.querySelectorAll(".new-rythm");
     for (let element of rythms) {
-        for (let i = 0; i < 8; i++) {
+        for (let i = 0; i < 16; i++) {
             let beat = document.createElement("div");
             beat.classList.add("new-beat");
             element.appendChild(beat);
         }
     }
 
-    let beats = document.querySelectorAll(".new-beat")
+    let beats = document.querySelectorAll(".new-beat");
     for (let element of beats) {
         for (let i = 0; i < 6; i++) {
             let note = document.createElement("input");
@@ -102,6 +102,11 @@ function generateEmptyTab(numberOfRows) {
         rowWrapper.classList.remove("new-row-wrapper");
         rowWrapper.classList.add("row-wrapper");
     }
+
+    let rowWrapper = document.querySelector(".row-wrapper");
+    let bar = document.createElement("div");
+    bar.classList.add("bar");
+    rowWrapper.appendChild(bar);
 }
 
 if (addRow != null) {
@@ -111,7 +116,7 @@ if (addRow != null) {
 }
 
 function loadTab() {
-    generateEmptyTab(myTab.length / 32);
+    generateEmptyTab(myTab.length / 64);
     let beats = document.querySelectorAll(".beat");
 
     if (myTab != null) {

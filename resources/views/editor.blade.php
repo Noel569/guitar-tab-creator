@@ -56,7 +56,11 @@
             </div>
             <div class="publicity-wrapper">
                 <p class="publicity-text">Private</p>
-                <input type="checkbox" name="publicity" id="publicity" {{ !$tab->publicity ? 'checked' : '' }}>
+                <div class="switch">
+                    <input type="checkbox" name="publicity" id="publicity" {{ !$tab->publicity ? 'checked' : '' }}>
+                    <div class="circle {{ !$tab->publicity ? 'private' : 'public' }}"></div>
+                </div>
+                <p class="publicity-text">Public</p>
             </div>
         </form>
         <div class="button-wrapper">
@@ -72,7 +76,11 @@
             </form>
         </div>
         <div class="tab">
-            <input class="bpm" type="number" value="{{ $tab->tempo }}">
+            <div class="tempo-wrapper">
+                <p class="publicity-text">Tempo:</p>
+                <input class="bpm" type="number" value="{{ $tab->tempo }}">
+                <p class="publicity-text">bpm</p>
+            </div>
             <input class="hidden-tab" style="display: none;" value="{{ $tab->tab }}">
         </div>
     </div>

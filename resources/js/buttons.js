@@ -5,7 +5,8 @@ let route = document.querySelector("meta[name=\"_route\"]");
 let like = document.querySelector(".like-wrapper");
 let likeIcon = document.querySelector(".like-icon");
 let likeCounter = document.querySelector("#like-counter");
-let publicity = document.querySelector(".publicity");
+let publicitySwitch = document.querySelector(".switch");
+let checkbox = document.querySelector("#publicity");
 let circle = document.querySelector(".circle");
 let play = document.querySelector("#play");
 let stop = document.querySelector("#stop");
@@ -69,7 +70,6 @@ if (like != null) {
             method: "POST",
             headers: {'X-CSRF-Token': csrf.content},
         }).then(res => {
-            console.log(res);
             if (res.redirected) {
                 location.href = res.url;
             } else {
@@ -91,14 +91,16 @@ if (like != null) {
     }
 }
 
-if (publicity != null) {
-    publicity.onclick = function() {
-        if (circle.classList.contains("public")) {
-            circle.classList.remove("public");
-            circle.classList.add("private");
-        } else if (circle.classList.contains("private")) {
+if (publicitySwitch != null) {
+    publicitySwitch.onclick = function() {
+        if (circle.classList.contains("private")) {
             circle.classList.remove("private");
             circle.classList.add("public");
-        }
+            checkbox.checked = false;
+        } else if (circle.classList.contains("public")) {
+            circle.classList.remove("public");
+            circle.classList.add("private");
+            checkbox.checked = true;
+        } 
     }
 }

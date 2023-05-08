@@ -13,10 +13,10 @@ class ProfileController extends Controller
     public function profile() {
         $user = Auth::user();
 
-        return view("profile", [
-            "username" => $user->username,
-            "email" => $user->email,
-            "tabs" => $user->tabs
+        return view('profile', [
+            'username' => $user->username,
+            'email' => $user->email,
+            'tabs' => $user->tabs
         ]);
     }
 }

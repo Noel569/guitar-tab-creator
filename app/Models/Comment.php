@@ -9,7 +9,11 @@ class Comment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["user_id", "tab_id", "comment"];
+    protected $fillable = [
+        'user_id',
+        'tab_id',
+        'comment'
+    ];
 
     public function user() {
         return $this->hasOne(User::class, 'id', 'user_id');

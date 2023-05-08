@@ -46,7 +46,7 @@ p {
     padding: 10px 100px 10px 50px;
 }
 
-.header a {
+.header a, .nav {
     display: inline-block;
     position: relative;
     font-weight: 600;
@@ -57,7 +57,7 @@ p {
     transition: all .3s ease-out;
 }
 
-.header a::after {
+.header a::after, .nav::after {
     content: '';
     position: absolute;
     left: 0;
@@ -71,8 +71,18 @@ p {
     transition: all .3s ease-out;
 }
 
-.header a:hover::after {
+.header a:hover::after, .nav:hover::after {
     transform: scaleX(1);
+}
+
+.nav {
+    padding: 0;
+    border-radius: 0;
+    border: none;
+}
+
+.nav:hover {
+    background-color: transparent;
 }
 
 .guitar-icon {
@@ -648,13 +658,17 @@ textarea::placeholder {
     column-gap: 8px;
 }
 
-.publicity {
+.switch {
     position: relative;
     height: 44px;
     width: 76px;
     border: 2px solid var(--green);
     border-radius: 50px;
     cursor: pointer;
+}
+
+#publicity {
+    display: none;
 }
 
 .circle {
@@ -735,6 +749,19 @@ textarea::placeholder {
     row-gap: 2px;
 }
 
+.bar {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    height: 110px;
+    width: 20px;
+    border-radius: 10px;
+    background-color: var(--blue);
+    opacity: 0.4;
+    transition: all .1s ease-out;
+    z-index: 1;
+}
+
 .note {
     height: 16px;
     width: 20px;
@@ -760,15 +787,23 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-.bpm {
-    color: var(--aliceblue);
-    font-size: 16px;
-    line-height: 16px;
+.tempo-wrapper {
     position: absolute;
     top: 35px;
     left: 40px;
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+}
+
+.bpm {
+    color: var(--aliceblue);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 16px;
     padding: 0;
     width: 30px;
     border: none;
     border-radius: 0;
+    text-align: center;
 }

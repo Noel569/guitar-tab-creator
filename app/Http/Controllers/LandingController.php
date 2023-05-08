@@ -13,8 +13,8 @@ class LandingController extends Controller
     {
         $tabs = Tab::where('publicity', '=', '1')->orderBy('id', 'desc')->take(10)->get();
 
-        return view("index", [
-            "tabs" => $tabs
+        return view('index', [
+            'tabs' => $tabs
         ]);
     }
 }
