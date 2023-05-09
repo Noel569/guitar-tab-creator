@@ -23,7 +23,7 @@ class Tab extends Model
 
     public function newQuery($excludeDeleted = true) {
         $query = parent::newQuery($excludeDeleted);
-        $query->whereRaw('publicity = 1 or user_id = ?', [Auth::user()->id ?? 0]);
+        $query->whereRaw('(publicity = 1 or user_id = ?)', [Auth::user()->id ?? 0]);
         return $query;
     }
 

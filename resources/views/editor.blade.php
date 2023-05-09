@@ -47,7 +47,7 @@
             <input type="hidden" name="tempo">
             <input type="hidden" name="tab">
             <div class="tuning-wrapper">
-                <p class="tuning-text">Tuning:</p>
+                <p class="text">Tuning:</p>
                 <select class="tuning" name="tuning_id">
                     @foreach($tunings as $tuning)
                     <option value="{{ $tuning->id }}">{{ $tuning->name }}</option>
@@ -55,14 +55,22 @@
                 </select>
             </div>
             <div class="publicity-wrapper">
-                <p class="publicity-text">Private</p>
+                <p class="text">Private</p>
                 <div class="switch">
                     <input type="checkbox" name="publicity" id="publicity" {{ !$tab->publicity ? 'checked' : '' }}>
                     <div class="circle {{ !$tab->publicity ? 'private' : 'public' }}"></div>
                 </div>
-                <p class="publicity-text">Public</p>
+                <p class="text">Public</p>
             </div>
         </form>
+        <div class="chord-wrapper">
+            <p class="text">Add chord:</p>
+            <select class="tuning chord" name="tuning_id">
+                <option class="chord-option" value="[null, 3, 2, 0, 1, 0]">C</option>
+                <option class="chord-option" value="[null, null, 0, 2, 3, 2]">D</option>
+                <option class="chord-option" value="[0, 2, 2, 0, 0, 0]">E m</option>
+            </select>
+        </div>
         <div class="button-wrapper">
             <button id="play">Play</button>
             <button id="stop" disabled>Stop</button>
@@ -77,9 +85,9 @@
         </div>
         <div class="tab">
             <div class="tempo-wrapper">
-                <p class="publicity-text">Tempo:</p>
+                <p class="text">Tempo:</p>
                 <input class="bpm" type="number" value="{{ $tab->tempo }}">
-                <p class="publicity-text">bpm</p>
+                <p class="text">bpm</p>
             </div>
             <input class="hidden-tab" style="display: none;" value="{{ $tab->tab }}">
         </div>

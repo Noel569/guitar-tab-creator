@@ -107,6 +107,9 @@ function generateEmptyTab(numberOfRows) {
     let bar = document.createElement("div");
     bar.classList.add("bar");
     rowWrapper.appendChild(bar);
+
+    let beat = document.querySelector(".beat");
+    beat.classList.add("selected");
 }
 
 if (addRow != null) {

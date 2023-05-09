@@ -20,15 +20,15 @@ class EditorController extends Controller
     }
 
     public function store(Request $request) {
-
         $validated = $request->validate([
             'title' => 'required',
             'performer' => 'required',
             'tuning_id' => 'required|exists:tunings,id',
             'tempo' => 'required',
             'tab' => 'required',
-            'publicity' => 'boolean'
         ]);
+
+        $validated['publicity'] = $request->get('publicity') != 'on';
         $validated['user_id'] = Auth::user()->id;
         Log::debug($validated);
         $tab = Tab::create($validated);

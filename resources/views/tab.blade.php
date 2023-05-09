@@ -12,11 +12,11 @@
             <a class="btn blue-btn" href="{{ route('edit', [$tab->id]) }}">Edit</a>
             @endif
         </div>
-        <div class="tab read-only">
+        <div class="tab">
             <div class="tempo-wrapper">
-                <p class="publicity-text">Tempo:</p>
+                <p class="text">Tempo:</p>
                 <input class="bpm" type="number" value="{{ $tab->tempo }}">
-                <p class="publicity-text">bpm</p>
+                <p class="text">bpm</p>
             </div>
             <input class="hidden-tab" style="display: none;" value="{{ $tab->tab }}">
         </div>
@@ -50,5 +50,5 @@
             @endforeach
         </div>
     </div>
-    @vite(['resources/js/tabgenerator.js', 'resources/js/tabplayer.js', 'resources/js/buttons.js'])
+    @vite(['resources/js/tabgenerator.js', 'resources/js/tabplayer.js', 'resources/js/buttons.js', 'resources/js/readonly.js'])
 @endsection

@@ -1,6 +1,15 @@
 @extends("components.base")
 @section("content")
     <div class="page">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="guitar">
             <div class="guitar-head">
                 <div class="top-decor"></div>
@@ -45,7 +54,7 @@
             <input type="hidden" name="tempo">
             <input type="hidden" name="tab">
             <div class="tuning-wrapper">
-                <p class="tuning-text">Tuning:</p>
+                <p class="text">Tuning:</p>
                 <select class="tuning" name="tuning_id">
                     @foreach($tunings as $tuning)
                     <option value="{{ $tuning->id }}">{{ $tuning->name }}</option>
@@ -53,14 +62,22 @@
                 </select>
             </div>
             <div class="publicity-wrapper">
-                <p class="publicity-text">Private</p>
+                <p class="text">Private</p>
                 <div class="switch">
                     <input type="checkbox" name="publicity" id="publicity" checked>
                     <div class="circle private"></div>
                 </div>
-                <p class="publicity-text">Public</p>
+                <p class="text">Public</p>
             </div>
         </form>
+        <div class="chord-wrapper">
+            <p class="text">Add chord:</p>
+            <select class="tuning chord" name="tuning_id">
+                <option value="[null, 3, 2, 0, 1, 0]">C</option>
+                <option value="[null, null, 0, 2, 3, 2]">D</option>
+                <option value="[0, 2, 2, 0, 0, 0]">E m</option>
+            </select>
+        </div>
         <div class="button-wrapper">
             <button id="play">Play</button>
             <button id="stop" disabled>Stop</button>
@@ -70,9 +87,9 @@
         </div>
         <div class="tab">
             <div class="tempo-wrapper">
-                <p class="publicity-text">Tempo:</p>
+                <p class="text">Tempo:</p>
                 <input class="bpm" type="number" value="120">
-                <p class="publicity-text">bpm</p>
+                <p class="text">bpm</p>
             </div>
         </div>
     </div>

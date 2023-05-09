@@ -79,22 +79,12 @@ function delay(ms) {
 }
 
 export async function playTab(tab, bpm) {
-    for (let i = 0; i < tab.length; i++) {
+    let selectedBeat = document.querySelector(".selected");
+    let selectedIndex = Array.from(beats).indexOf(selectedBeat);
+    for (let i = selectedIndex; i < tab.length; i++) {
         playBeat(tab[i]);
         bar.style.top = (Math.floor(i / 64) * 140 - 10) + "px";
         bar.style.left = ((i % 64) * 100 / 64) + "%";
         await delay(15 / bpm * 1000);
     }
-}
-
-for (let i = 0; i < beats.length; i++) {
-    beats[i].addEventListener('click', function() {
-        let selectedBeat = document.querySelector(".selected");
-        if (selectedBeat != null) {
-            selectedBeat.classList.remove("selected");
-        }
-        beats[i].classList.add("selected");
-        bar.style.top = (Math.floor(i / 64) * 140 - 10) + "px";
-        bar.style.left = ((i % 64) * 100 / 64) + "%";
-    });
 }

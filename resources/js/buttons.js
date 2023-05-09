@@ -12,6 +12,8 @@ let play = document.querySelector("#play");
 let stop = document.querySelector("#stop");
 let save = document.querySelector("#save");
 let bpm = document.querySelector(".bpm");
+let beats = document.querySelectorAll(".beat");
+let chordSelect = document.querySelector(".chord");
 let hiddenTab = document.querySelector(".hidden-tab");
 let myTab = [];
 if (hiddenTab != null) {
@@ -38,7 +40,7 @@ if (save != null) {
         let form = document.querySelector(".input-wrapper");
         let tempo = document.querySelector("input[name=\"tempo\"]");
         let tabString = document.querySelector("input[name=\"tab\"]");
-        let beats = document.querySelectorAll(".beat");
+        beats = document.querySelectorAll(".beat");
         let tab = [];
         let beat;
 
@@ -104,3 +106,20 @@ if (publicitySwitch != null) {
         } 
     }
 }
+
+for (let i = 0; i < beats.length; i++) {
+    beats[i].addEventListener('click', function() {
+        let selectedBeat = document.querySelector(".selected");
+        selectedBeat.classList.remove("selected");
+        beats[i].classList.add("selected");
+    });
+}
+
+chordSelect.addEventListener('change', function() {
+    let selectedBeat = document.querySelector(".selected");
+    let chord = JSON.parse(chordSelect.value);
+    let targetNotes = selectedBeat.children;
+    for (let i = 0; i < 6; i++) {
+        targetNotes[i].value = chord[5 - i];
+    }
+});
