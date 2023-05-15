@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Tuning;
+use App\Models\Chord;
 use App\Models\Like;
 use App\Models\Comment;
 
@@ -29,7 +30,8 @@ class TabController extends Controller
             return redirect()->route('landing');
         }
         $tunings = Tuning::all();
-        return view('editor', ['tab'=>$tab, 'tunings'=>$tunings]);
+        $chords = Chord::all();
+        return view('editor', ['tab'=>$tab, 'tunings'=>$tunings, 'chords'=>$chords]);
     }
 
     public function update(Request $request, $tab_id) {

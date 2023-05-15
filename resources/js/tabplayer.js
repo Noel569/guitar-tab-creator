@@ -1,5 +1,7 @@
 let beats = document.querySelectorAll(".beat");
 let bar = document.querySelector(".bar");
+let tuning = document.querySelector(".hidden-tuning");
+
 const context = new AudioContext();
 
 let dampening = 0.99;
@@ -58,7 +60,8 @@ function strum(fret) {
 
 function getFrequency(string, fret) {
     const A = 110;
-    const offsets = [-5, 0, 5, 10, 14, 19];
+    const offsets = JSON.parse(tuning.value);
+    
     return A * Math.pow(2, (fret + offsets[string]) / 12);
 }
 

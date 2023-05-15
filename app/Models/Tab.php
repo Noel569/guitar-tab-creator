@@ -35,6 +35,10 @@ class Tab extends Model
         return $this->hasOne(Tuning::class, 'id', 'tuning_id');
     }
 
+    public function chord() {
+        return $this->hasOne(Chord::class, 'id', 'chord_id');
+    }
+
     public function likes() {
         return $this->hasMany(Like::class, 'tab_id', 'id');
     }

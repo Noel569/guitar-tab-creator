@@ -1,6 +1,7 @@
 @extends("components.base")
 @section("content")
     <div class="page">
+        <input class="hidden-tuning" type="hidden" value="{{ $tunings->first()->tuning }}">
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -55,7 +56,7 @@
             <input type="hidden" name="tab">
             <div class="tuning-wrapper">
                 <p class="text">Tuning:</p>
-                <select class="tuning" name="tuning_id">
+                <select id="tuning" class="tuning" name="tuning_id">
                     @foreach($tunings as $tuning)
                     <option value="{{ $tuning->id }}">{{ $tuning->name }}</option>
                     @endforeach()
@@ -72,10 +73,11 @@
         </form>
         <div class="chord-wrapper">
             <p class="text">Add chord:</p>
-            <select class="tuning chord" name="tuning_id">
-                <option value="[null, 3, 2, 0, 1, 0]">C</option>
-                <option value="[null, null, 0, 2, 3, 2]">D</option>
-                <option value="[0, 2, 2, 0, 0, 0]">E m</option>
+            <select class="tuning chord" name="chord_id">
+                <option value=""></option>
+                @foreach($chords as $chord)
+                <option class="chord-option" value="{{ $chord->chord }}">{{ $chord->name }}</option>
+                @endforeach()
             </select>
         </div>
         <div class="button-wrapper">

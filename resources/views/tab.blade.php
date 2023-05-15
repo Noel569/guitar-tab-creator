@@ -5,6 +5,8 @@
         <meta name="_route" content="{{ route('like', [$tab->id]) }}">
         <h2 class="tab-title">{{ $tab->title }}</h2>
         <p class="tab-performer">{{ $tab->performer }}</p>
+        <p class="tab-performer tab-maker">Tuning: {{ $tab->tuning->name }}</p>
+        <input class="hidden-tuning" type="hidden" value="{{ $tab->tuning->tuning }}">
         <div class="button-wrapper">
             <button id="play">Play</button>
             <button id="stop" disabled>Stop</button>
@@ -18,7 +20,7 @@
                 <input class="bpm" type="number" value="{{ $tab->tempo }}">
                 <p class="text">bpm</p>
             </div>
-            <input class="hidden-tab" style="display: none;" value="{{ $tab->tab }}">
+            <input class="hidden-tab" type="hidden" value="{{ $tab->tab }}">
         </div>
         <div class="response-wrapper">
             <div class="like-wrapper">
@@ -41,7 +43,7 @@
             <button class="comment-button">Post Comment</button>
         </form>
         <div class="comments-wrapper">
-            @foreach($tab->comments as $comment)
+            @foreach($tab->comments()->orderBy('created_at', 'desc')->get() as $comment)
             <div class="comment">
                 <p class="comment-name">{{ $comment->user->username }}</p>
                 <p class="comment-date">{{ date("Y.m.d. H:i", strtotime($comment->created_at)) }}</p>

@@ -122,4 +122,5 @@ chordSelect.addEventListener('change', function() {
     for (let i = 0; i < 6; i++) {
         targetNotes[i].value = chord[5 - i];
     }
+    chordSelect.value = chordSelect.defaultSelected;
 });

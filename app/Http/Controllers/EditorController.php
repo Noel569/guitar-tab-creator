@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use App\Models\Tab;
 use App\Models\Tuning;
+use App\Models\Chord;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -16,7 +17,8 @@ class EditorController extends Controller
 {
     public function view() {
         $tunings = Tuning::all();
-        return view('empty_editor', ['tunings'=>$tunings]);
+        $chords = Chord::all();
+        return view('empty_editor', ['tunings'=>$tunings, 'chords'=>$chords]);
     }
 
     public function store(Request $request) {
