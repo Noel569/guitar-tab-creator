@@ -115,12 +115,14 @@ for (let i = 0; i < beats.length; i++) {
     });
 }
 
-chordSelect.addEventListener('change', function() {
-    let selectedBeat = document.querySelector(".selected");
-    let chord = JSON.parse(chordSelect.value);
-    let targetNotes = selectedBeat.children;
-    for (let i = 0; i < 6; i++) {
-        targetNotes[i].value = chord[5 - i];
-    }
-    chordSelect.value = chordSelect.defaultSelected;
-});
+if (chordSelect != null) {
+    chordSelect.addEventListener('change', function() {
+        let selectedBeat = document.querySelector(".selected");
+        let chord = JSON.parse(chordSelect.value);
+        let targetNotes = selectedBeat.children;
+        for (let i = 0; i < 6; i++) {
+            targetNotes[i].value = chord[5 - i];
+        }
+        chordSelect.value = chordSelect.defaultSelected;
+    });
+}

@@ -43,5 +43,8 @@
             </div>
             @endforeach
         </div>
+        <div class="pagination">
+            {{ $tabs->links('vendor.pagination.default') }}
+        </div>
     </div>
 @endsection

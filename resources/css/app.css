@@ -232,6 +232,7 @@ input::placeholder {
     justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
+    margin-bottom: 48px;
 }
 
 .tab-card {
@@ -347,8 +348,62 @@ input::placeholder {
 .search-wrapper {
     display: flex;
     justify-content: center;
-    column-gap: 16px;
     margin: 48px 0;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 24px;
+    color: var(--aliceblue);
+}
+
+.pagination a {
+    text-decoration: none;
+}
+
+.page-nav {
+    width: 90px;
+    padding: 8px 0;
+    border: 2px solid var(--green);
+    border-radius: 18px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 16px;
+    color: var(--green);
+    transition: all .3s ease-out;
+}
+
+.page-nav.disabled {
+    color: var(--light-grey);
+    border-color: var(--light-grey);
+    pointer-events: none;
+}
+
+.page-nav:hover {
+    color: var(--primary);
+    background-color: var(--green);
+}
+
+.number-wrapper {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+}
+
+.page-number {
+    font-size: 18px;
+    line-height: 18px;
+    color: var(--aliceblue);
+}
+
+.page-number.current {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 22px;
+    color: var(--green);
 }
 
 /* REGISTER / LOGIN FORM */
@@ -427,9 +482,9 @@ input::placeholder {
 }
 
 .response-wrapper {
+    position: relative;
     display: flex;
     align-items: center;
-    column-gap: 8px;
     margin-bottom: 48px;
 }
 
@@ -456,11 +511,19 @@ input::placeholder {
 }
 
 .comment-icon {
+    position: absolute;
+    left: 78px;
     height: 30px;
     width: 30px;
 }
 
+#like-counter {
+    left: 38px;
+}
+
 .counter {
+    position: absolute;
+    left: 116px;
     color: var(--aliceblue);
     font-size: 20px;
     font-weight: 500;

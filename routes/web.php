@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("/", [LandingController::class, "landing"])->name("landing");
+Route::get("/", [LandingController::class, "view"])->name("landing");
 
 Route::get("/login", [LoginController::class, "view"])->name("login");
 
