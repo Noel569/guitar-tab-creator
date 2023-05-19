@@ -645,8 +645,13 @@ textarea::placeholder {
     transition: all .3s ease-out;
 }
 
+.empty-string {
+    background-color: var(--aliceblue) !important;
+    border-radius: 0 !important;
+}
+
 .guitar-neck td:hover {
-    background-color: var(--green);
+    background-color: var(--green) !important;
 }
 
 .guitar-body {

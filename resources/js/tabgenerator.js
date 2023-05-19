@@ -126,6 +126,11 @@ function loadTab() {
         for (let i = 0; i < myTab.length; i++) {
             let k = 0
             for (let j = 5; j >= 0; j--) {
+                if (myTab[i][j] > 24) {
+                    myTab[i][j] = 24;
+                } else if (myTab[i][j] < 0) {
+                    myTab[i][j] = 0;
+                }
                 beats[i].children[k].value = myTab[i][j];
                 k++;
             }

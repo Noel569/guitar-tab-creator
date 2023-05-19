@@ -13,6 +13,7 @@ let stop = document.querySelector("#stop");
 let save = document.querySelector("#save");
 let bpm = document.querySelector(".bpm");
 let beats = document.querySelectorAll(".beat");
+let guitarNotes = document.querySelectorAll(".guitar-neck td");
 let chordSelect = document.querySelector(".chord");
 let hiddenTab = document.querySelector(".hidden-tab");
 let myTab = [];
@@ -125,4 +126,33 @@ if (chordSelect != null) {
         }
         chordSelect.value = chordSelect.defaultSelected;
     });
+}
+
+if (guitarNotes != null) {
+    for (let i = 0; i < guitarNotes.length; i++) {
+        guitarNotes[i].addEventListener('click', function() {
+            let string = Math.floor(i / 25);
+            let fret = i % 25;
+            let insertedBeat = [];
+            for (let j = 0; j < 6; j++) {
+                if (5 - j == string) {
+                    insertedBeat[j] = fret;
+                } else {
+                    insertedBeat[j] = null;
+                }
+            }
+            let selectedBeat = document.querySelector(".selected");
+            let targetNotes = selectedBeat.children;
+            for (let j = 0; j < 6; j++) {
+                targetNotes[j].value = insertedBeat[5 - j];
+            }
+            for (let j = 0; j < beats.length; j++) {
+                if (beats[j].classList.contains("selected")) {
+                    beats[j].classList.remove("selected");
+                    beats[j + 2].classList.add("selected");
+                    break;
+                }
+            }
+        });
+    }
 }
