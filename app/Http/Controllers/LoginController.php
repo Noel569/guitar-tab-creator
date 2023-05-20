@@ -24,7 +24,7 @@ class LoginController extends Controller
         if (Auth::attempt($validated)) {
             return redirect()->route('landing');
         }
-        return redirect()->route('login')->withErrors(['wrongAuth'=>'Incorrect e-mail address or password!']);
+        return redirect()->route('login')->withErrors(['wrongAuth'=>'Incorrect e-mail address or password.']);
     }
 
     public function logout() {

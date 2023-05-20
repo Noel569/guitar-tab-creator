@@ -2,15 +2,6 @@
 @section("content")
     <div class="page">
         <input class="hidden-tuning" type="hidden" value="{{ $tunings->first()->tuning }}">
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
         <div class="guitar">
             <div class="guitar-head">
                 <div class="top-decor"></div>
@@ -48,6 +39,7 @@
                 <div class="circle-right"></div>
             </div>
         </div>
+        @include("components.errors")
         <form class="input-wrapper" action="{{ route('editor.store') }}" method="POST">
             @csrf
             <input class="input-title" type="text" name="title" placeholder="Enter Title">

@@ -409,6 +409,7 @@ input::placeholder {
 /* REGISTER / LOGIN FORM */
 
 .form-wrapper {
+    width: 350px;
     display: flex;
     flex-direction: column;
 }
@@ -771,7 +772,7 @@ option:hover {
     position: relative;
     border: 2px solid var(--green);
     border-radius: 20px;
-    width: calc(100% - 80px);
+    width: calc(100% - 84px);
     margin: 24px 0;
     padding: 70px 40px 20px;
 }
@@ -884,4 +885,24 @@ input::-webkit-inner-spin-button {
     border: none;
     border-radius: 0;
     text-align: center;
+}
+
+/* ERROR MESSAGES */
+
+.errors-wrapper {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--red);
+    border: 2px solid var(--red);
+    border-radius: 20px;
+    padding: 16px 0;
+    margin: 40px 0;
+}
+
+.errors-wrapper ul {
+    margin: 0;
+    padding-left: 24px;
 }

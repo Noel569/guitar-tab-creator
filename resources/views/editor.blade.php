@@ -41,6 +41,7 @@
                 <div class="circle-right"></div>
             </div>
         </div>
+        @include("components.errors")
         <form class="input-wrapper" action="{{ route('edit.update', [$tab->id]) }}" method="POST">
             @csrf
             <input class="input-title" type="text" name="title" value="{{ $tab->title }}">
