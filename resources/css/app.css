@@ -16,15 +16,15 @@ body {
 
 h1 {
     font-weight: 700;
-    font-size: 48px;
-    line-height: 56px;
+    font-size: 42px;
+    line-height: 48px;
     margin: 0;
 }
 
 h2 {
     font-weight: 600;
     font-size: 32px;
-    line-height: 42px;
+    line-height: 38px;
     margin: 0;
 }
 
@@ -232,7 +232,7 @@ input::placeholder {
     justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
-    margin-bottom: 48px;
+    margin-bottom: 40px;
 }
 
 .tab-card {
@@ -336,7 +336,7 @@ input::placeholder {
 
 .front-page-title {
     text-align: center;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     color: var(--aliceblue)
 }
 
@@ -348,7 +348,7 @@ input::placeholder {
 .search-wrapper {
     display: flex;
     justify-content: center;
-    margin: 48px 0;
+    margin: 40px 0;
 }
 
 .pagination {
@@ -449,7 +449,7 @@ input::placeholder {
     border-radius: 20px;
     padding: 10px 14px;
     color: var(--aliceblue);
-    margin-bottom: 48px;
+    margin-bottom: 40px;
 }
 
 .information td {
@@ -486,7 +486,7 @@ input::placeholder {
     position: relative;
     display: flex;
     align-items: center;
-    margin-bottom: 48px;
+    margin-bottom: 40px;
 }
 
 .like-wrapper {
@@ -531,7 +531,7 @@ input::placeholder {
 }
 
 .comment-editor {
-    margin-bottom: 48px;
+    margin-bottom: 40px;
 }
 
 textarea {
