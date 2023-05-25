@@ -78,6 +78,7 @@
         </div>
         <div class="button-wrapper">
             <button id="save">Save</button>
+            <button id="add-row">Add Row</button>
         </div>
         <div class="tab">
             <div class="tempo-wrapper">
