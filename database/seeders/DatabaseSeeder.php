@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
         Chord::create(['name'=>'A', 'chord'=>'[null, 0, 2, 2, 2, 0]']);
         Chord::create(['name'=>'B', 'chord'=>'[null, 2, 4, 4, 4, 2]']);
 
-        Tuning::create(['name'=>'Standard', 'tuning'=>'']);
+        Tuning::create(['name'=>'Standard', 'tuning'=>'[-5, 0, 5, 10, 14, 19]']);
         Tuning::create(['name'=>'Drop D', 'tuning'=>'[-7, 0, 5, 10, 14, 19]']);
         Tuning::create(['name'=>'D Tuning', 'tuning'=>'[-7, -2, 3, 8, 12, 17]']);
         Tuning::create(['name'=>'D# Tuning', 'tuning'=>'[-6, -1, 4, 9, 13, 18]']);
