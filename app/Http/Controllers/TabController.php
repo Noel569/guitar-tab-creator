@@ -13,7 +13,7 @@ use App\Models\Comment;
 
 class TabController extends Controller
 {
-    public function tab($tab_id) {
+    public function view($tab_id) {
         $tab = Tab::find($tab_id);
         if (empty($tab)) {
             return redirect()->route('landing');

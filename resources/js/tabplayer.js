@@ -1,6 +1,7 @@
-let beats = document.querySelectorAll(".beat");
 let bar = document.querySelector(".bar");
 let tuning = document.querySelector(".hidden-tuning");
+let play = document.querySelector("#play");
+let stop = document.querySelector("#stop");
 
 const context = new AudioContext();
 
@@ -82,12 +83,21 @@ function delay(ms) {
 }
 
 export async function playTab(tab, bpm) {
+    let beats = document.querySelectorAll(".beat");
     let selectedBeat = document.querySelector(".selected");
     let selectedIndex = Array.from(beats).indexOf(selectedBeat);
-    for (let i = selectedIndex; i < tab.length; i++) {
+    for (let i = selectedIndex; i < beats.length; i++) {
         playBeat(tab[i]);
+        beats[i].classList.remove("selected");
+        if (i == beats.length - 1) {
+            beats[0].classList.add("selected");
+        } else {
+            beats[i + 1].classList.add("selected");
+        }
         bar.style.top = (Math.floor(i / 64) * 140 - 10) + "px";
         bar.style.left = ((i % 64) * 100 / 64) + "%";
         await delay(15 / bpm * 1000);
     }
+    stop.disabled = true;
+    play.disabled = false;
 }

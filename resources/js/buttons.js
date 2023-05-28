@@ -25,8 +25,26 @@ play.onclick = function() {
     stop.disabled = false;
     play.disabled = true;
 
+    beats = document.querySelectorAll(".beat");
+    let beat;
+    let tab = [];
+
+    for (let i = 0; i < beats.length; i++) {
+        beat = [];
+        for (let j = 5; j >= 0; j--) {
+            if (beats[i].children[j].value == '') {
+                beat.push(null)
+            }
+            else {
+                beat.push(JSON.parse(beats[i].children[j].value));
+            }
+        }
+        tab.push(beat);
+    }
+    bpm = document.querySelector(".bpm");
+
     setPaused(false);
-    playTab(myTab, bpm.value);
+    playTab(tab, bpm.value);
 }
 
 stop.onclick = function() {

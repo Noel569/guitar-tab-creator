@@ -11,7 +11,7 @@ use App\Models\Tab;
 
 class ProfileController extends Controller
 {
-    public function profile() {
+    public function view() {
         $user = Auth::user();
         $tabs = Tab::where('user_id', '=', $user->id)->orderBy('id', 'desc')->paginate(8);
 

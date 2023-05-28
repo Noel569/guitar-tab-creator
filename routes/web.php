@@ -27,18 +27,18 @@ Route::post("/login", [LoginController::class, "login"])->name("login.login");
 
 Route::post("/logout", [LoginController::class, "logout"])->name("logout");
 
-Route::get("/profile", [ProfileController::class, "profile"])->name("profile");
+Route::get("/profile", [ProfileController::class, "view"])->name("profile");
 
 Route::get("/register", [RegisterController::class, "view"])->name("register");
 
 Route::post("/register", [RegisterController::class, "store"])->name("register.store");
 
-Route::get("/tabs/{tab_id}", [TabController::class, "tab"])->name("tab");
+Route::get("/tabs/{tab_id}", [TabController::class, "view"])->name("tab");
 
 Route::middleware("middleware.auth")->group(function () {
     Route::post("/logout", [LoginController::class, "logout"])->name("logout");
 
-    Route::get("/profile", [ProfileController::class, "profile"])->name("profile");
+    Route::get("/profile", [ProfileController::class, "view"])->name("profile");
 
     Route::get("/tabs/{tab_id}/edit", [TabController::class, "editor"])->name("edit");
 
